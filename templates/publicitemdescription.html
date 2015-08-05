@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+	
+<body>
+	<h1 id='first'> Catalog App </h1>
+	<a href="{{url_for('showLogin')}}">Login </a>
+	
+	<h1>{{item.name}}</h1>
+	
+	<p>{{item.description}}</p>
+
+</body>
+</html>
