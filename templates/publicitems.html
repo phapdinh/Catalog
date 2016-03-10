@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+	
+<body>
+	<h1 id='first'> Catalog App </h1>
+	<a href="{{url_for('showLogin')}}">Login </a>
+	<table>
+		<tr>
+			<td>
+				<h1>List of Categories</h1>
+				{% for c in categories %}
+				<a href="{{url_for('showItems',category_id=c.id)}}">
+				<p>{{c.name}}</p>
+				</a>
+				{% endfor %}
+			</td>
+			<td>
+				<h1>{{category.name}} Items ({{count}} items)</h1>
+				{% for i in items %}
+				<a href="{{url_for('showOneItem',category_id = i.category_id,item_id = i.id)}}">
+				<p>{{i.name}}</p>
+				</a>
+				{% endfor %}
+			</td>
+		</tr>
+	<table>
+</body>
+</html>
