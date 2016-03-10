@@ -8,8 +8,7 @@
 	<h1 id='first'> Catalog App </h1>
 	<a href="{{url_for('gdisconnect')}}">Logout </a>
 	<table>
-		<tr>
-			
+		<tr>	
 			<td>
 				<h1>List of Categories</h1>
 				{% for c in categories %}
@@ -25,9 +24,8 @@
 				<p>{{i.name}}</p>
 				</a>
 				{% endfor %}
-	</td>
-	</td>
-	</tr>
+			</td>
+		</tr>
 	</table>
 </body>
 </html>

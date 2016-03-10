@@ -171,14 +171,10 @@ def showCategories():
     categories = session.query(Category).all()
     items = session.query(Item).all()
     items = items[::-1]
-<<<<<<< HEAD
     if 'username' not in login_session:
-	return render_template('publiccatalog.html', categories = categories, items = items[:9])
+		return render_template('publiccatalog.html', categories = categories, items = items[:9])
     else:
-	return render_template('logincatalog.html', categories = categories, items = items[:9])
-=======
-    return render_template('publiccatalog.html', categories = categories, items = items[:9])
->>>>>>> 1ccbbc09aef77c28db1cd134107350ce8650f0c6
+		return render_template('logincatalog.html', categories = categories, items = items[:9])
 
 #Show category items
 @app.route('/catalog/<int:category_id>/')
