@@ -12,6 +12,7 @@ import httplib2
 import json
 from flask import make_response
 import requests, string
+from dicttoxml import dicttoxml
 
 app = Flask(__name__)
 
@@ -163,6 +164,10 @@ def categoriesJSON():
     categories = session.query(Category).all()
     return jsonify(categories= [r.serialize for r in categories])
 
+@app.route('/catalog/<int:category_id>/<int:item_id>/XML')
+def itemXML(category_id, item_id):
+    item = session.query(Item).filter_by(id = item_id).one()
+    return dicttoxml(item.serialize)
 
 #Show all Categories
 @app.route('/')
@@ -172,9 +177,9 @@ def showCategories():
     items = session.query(Item).all()
     items = items[::-1]
     if 'username' not in login_session:
-		return render_template('publiccatalog.html', categories = categories, items = items[:9])
+	return render_template('publiccatalog.html', categories = categories, items = items[:9])
     else:
-		return render_template('logincatalog.html', categories = categories, items = items[:9])
+	return render_template('logincatalog.html', categories = categories, items = items[:9])
 
 #Show category items
 @app.route('/catalog/<int:category_id>/')
