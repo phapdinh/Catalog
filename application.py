@@ -164,11 +164,23 @@ def categoriesJSON():
     categories = session.query(Category).all()
     return jsonify(categories= [r.serialize for r in categories])
 
+#XML API endpoints
+@app.route('/catalog/<int:category_id>/XML')
+def categoryXML(category_id):
+    items = session.query(Item).filter_by(category_id = category_id).all()
+    return dicttoxml({'Items':[i.serialize for i in items]})
+
 @app.route('/catalog/<int:category_id>/<int:item_id>/XML')
 def itemXML(category_id, item_id):
     item = session.query(Item).filter_by(id = item_id).one()
     return dicttoxml(item.serialize)
 
+@app.route('/catalog/XML')
+def categoriesXML():
+    categories = session.query(Category).all()
+    obj = {'categories': [r.serialize for r in categories]}
+    return dicttoxml(obj)
+	
 #Show all Categories
 @app.route('/')
 @app.route('/catalog/')
