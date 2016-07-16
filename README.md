@@ -38,3 +38,9 @@ Type **python lotsofitems.py** to populate the database with categories and item
 Type **python application.py** to run the Flask web server. In your browser visit **http://localhost:8000** to view the catalog app.  
 
 If you want to log into the App, you have to create a client id for google oauth and put it into the login.html file by changing the span attribute called data-clientid field to the client id that you got from google oauth and clicking the google login button. After login, you will be able to add, edit, and delete items.
+
+## Use These links to host on Apache Server
+
+https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+
+https://github.com/stueken/FSND-P5_Linux-Server-Configuration
