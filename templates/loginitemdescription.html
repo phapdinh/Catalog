@@ -5,8 +5,7 @@
 </head>
 
 <body>
-	<h1 id='first'> Catalog App</h1> 
-	<a href="{{url_for('gdisconnect')}}">Logout </a>
+	{% include "loginHeader.html" %}
 	
 	<h1>{{item.name}}</h1>
 	
